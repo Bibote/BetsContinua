@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
  
   <modelVersion>4.0.0</modelVersion>
-  <groupId>Bets21Test</groupId>
+  <groupId>BetsContinua</groupId>
   <artifactId>BetsContinua</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
@@ -50,7 +50,7 @@
     <maven.compiler.source>1.8</maven.compiler.source>    
      <sonar.organization>ibote</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-    <sonar.login>e2100d6aa8f06f1f9d1c3e63f5bb9016e188fb69 </sonar.login>
+    <sonar.login>53d88702b024d0d8c40812ca943db5d03e7747a3 </sonar.login>
     
     
 </properties>
