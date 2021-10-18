@@ -50,7 +50,7 @@
     <maven.compiler.source>1.8</maven.compiler.source>    
      <sonar.organization>millansaez</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-    <sonar.login>d0efe29b88e651b732b1acf7bfae3c8c1837010e</sonar.login>
+    <sonar.login>247174a564a90fe98ae13a583353e3855f27d35f</sonar.login>
     
     
 </properties>
