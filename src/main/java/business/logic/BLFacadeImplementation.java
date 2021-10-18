@@ -50,7 +50,7 @@ import exceptions.WrongEmailPattern;
 import exceptions.WrongParameters;
 
 /**
- * It implements the business logic as a web service.
+ * It implements the business logic as a web service.aaaaaa
  */
 @WebService(endpointInterface = "businessLogic.BLFacade")
 public class BLFacadeImplementation  implements BLFacade {
