@@ -253,7 +253,7 @@ public interface BLFacade  {
 	@WebMethod public User getUser(Integer dni) throws UserDoesntExist;
 	
 	/**
-	 * Banea a un usuario y le muestra el mensaje pasado por parámetro al intentar hacer login
+	 * Banea a un usuario y le muestra el mensaje pasado por parametro al intentar hacer login
 	 * @param usr el usuario a banear
 	 * @param message el mensaje a mostrar
 	 * @throws UserDoesntExist si el usuario no existe
@@ -270,7 +270,7 @@ public interface BLFacade  {
 	/**
 	 * Metodo para cambiar los creditos
 	 * @param usr el usuario del cual quieres cambiar los creditos
-	 * @param chuti los creditos a añadir o sustraer 
+	 * @param chuti los creditos a anadir o sustraer 
 	 * @throws NotEnoughChuti si no hay suficientes creditos al sustraer 
 	 */
 	@WebMethod public void changeChuti(User usr, Double chuti) throws NotEnoughChuti;
@@ -283,15 +283,15 @@ public interface BLFacade  {
 	@WebMethod Vector<Question> getQuestionsFromEvent(Event evento);
 	
 	/**
-	 * Obtiene los pronósticos de una pregunta
-	 * @param pregunta la pregunta de la que quieres los pronósticos
-	 * @return el vector de pronósticos
+	 * Obtiene los pronosticos de una pregunta
+	 * @param pregunta la pregunta de la que quieres los pronosticos
+	 * @return el vector de pronosticos
 	 */
 	@WebMethod Vector<Pronosticos> getPronosticosFromQuestion(Question pregunta);
 	
 	/**
-	 * Se añade una apuesta por parte de un usuario a una pregunta
-	 * @param apuesta la apuesta a añadir
+	 * Se anade una apuesta por parte de un usuario a una pregunta
+	 * @param apuesta la apuesta a anadir
 	 */
 	@WebMethod void addApuesta(Apuesta apuesta);
 	
@@ -312,15 +312,15 @@ public interface BLFacade  {
 	@WebMethod Event createEvent(String description, Date fecha, Equipo eq1, Equipo eq2);
 	
 	/**
-	 * Recarga el usuario que ha iniciado sesión
+	 * Recarga el usuario que ha iniciado sesion
 	 */
 	@WebMethod
 	public void reloadUser();
 	
 	/**
 	 * Obtener eventos entre dos fechas
-	 * @param pastDate el margen izquierdo de la fecha (la más antigua)
-	 * @param todayDate  el margen derecho de la fecha (la más nueva)
+	 * @param pastDate el margen izquierdo de la fecha (la mas antigua)
+	 * @param todayDate  el margen derecho de la fecha (la mas nueva)
 	 * @return el vector de eventos entre esas fechas
 	 */
 	@WebMethod
@@ -358,7 +358,7 @@ public interface BLFacade  {
 	public Vector<Card> obtenerTarjetasUsr()throws NoCardsStored;
 	
 	@WebMethod 
-	public void añadirTarjetaUsr(String usr);
+	public void anadirTarjetaUsr(String usr);
 	/**
 	 * Metodo que comprueba si una tarjeta es valida (tiene 16 numeros)
 	 * @param tarjeta Numero a comprobar

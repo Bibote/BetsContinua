@@ -568,7 +568,7 @@ public class BLFacadeImplementation  implements BLFacade {
 
 
 	@Override
-	public void añadirTarjetaUsr(String tarjeta) {
+	public void anadirTarjetaUsr(String tarjeta) {
 		dbManager.open(false);
 		dbManager.addCardUser(this.user1, tarjeta);
 		dbManager.close();
