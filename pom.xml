@@ -1,84 +1,68 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
- 
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>millansaez</groupId>
-  <artifactId>BetsContinua</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>Bets21</groupId>
+	<artifactId>BetsContinua</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 
-<build>
-    <plugins>
-	<plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.22.0</version>
-          <configuration>
-               <testFailureIgnore>true</testFailureIgnore>
-            </configuration>
-        </plugin>
-        <plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.6</version>
-				<executions>
-					<execution>
-						<id>prepare-agent</id>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>report</id>
-						<goals>
-							<goal>report</goal>
-						</goals>
-					</execution>
-				</executions>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19.1</version>
+				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>
+				</configuration>
 			</plugin>
-   </plugins>
-</build>
- <repositories>
-	<repository>
-		<id>objectdb</id>
-		<name>ObjectDB Repository</name>
-		<url>https://m2.objectdb.com</url>
-	</repository>
-</repositories>
+		</plugins>
+	</build>
+	<repositories>
+		<repository>
+			<id>objectdb</id>
+			<name>ObjectDB Repository</name>
+			<url>https://m2.objectdb.com</url>
+		</repository>
+	</repositories>
 
-<properties>
+	<properties>
+		<maven.compiler.target>11</maven.compiler.target>
+		<maven.compiler.source>11</maven.compiler.source>
+		<sonar.organization>ibote</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	</properties>
 
-     <maven.compiler.target>11</maven.compiler.target>
- 	<maven.compiler.source>11</maven.compiler.source>
- 	<sonar.organization>millansaez</sonar.organization>
- 	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
- 	<sonar.login>9fad761b9e6655b7a5c4c75ccdf889207baadd6c</sonar.login>
-    
-    
-</properties>
-
-<!-- https://mvnrepository.com/artifact/junit/junit -->
-<dependencies>
+	<!-- https://mvnrepository.com/artifact/junit/junit -->
+	<dependencies>
 		<dependency>
-  		  <groupId>junit</groupId>
-  		  <artifactId>junit</artifactId>
-  	 	 <version>4.5</version>
- 	 	  <scope>test</scope>
-		</dependency> 
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.7.0-M1</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.7.0-M1</version>
-            <scope>test</scope>
-        </dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.8.0</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-			<version>1.9.5</version>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-launcher</artifactId>
+			<version>1.7.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.toedter</groupId>
 			<artifactId>jcalendar</artifactId>
 			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.5</version>
+			<scope>test</scope>
 		</dependency>
 
 		<!-- API JAXB -->
@@ -102,7 +86,7 @@
 			<artifactId>jakarta.xml.ws-api</artifactId>
 			<version>2.3.2</version>
 		</dependency>
-		
+
 		<!-- Runtime -->
 		<dependency>
 			<groupId>com.sun.xml.ws</groupId>
@@ -126,12 +110,13 @@
 			<version>1.1</version>
 		</dependency>
 		<dependency>
-    	<groupId>org.jdatepicker</groupId>
-   		 <artifactId>jdatepicker</artifactId>
-    	<version>1.3.4</version>
-</dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>3.2.4</version>
+			<scope>test</scope>
+		</dependency>
 
-		
-</dependencies>
+
+	</dependencies>
 
 </project>
