@@ -45,7 +45,7 @@ import exceptions.WrongParameters;
 /**
  * It implements the data access to the objectDb database
  */
-public class DataAccess {
+public class DataAccessSaez2 {
 	protected static EntityManager db;
 	protected static EntityManagerFactory emf;
 
@@ -53,7 +53,7 @@ public class DataAccess {
 
 	ConfigXML c = ConfigXML.getInstance();
 
-	public DataAccess(boolean initializeMode) {
+	public DataAccessSaez2(boolean initializeMode) {
 
 		System.out.println("Creating DataAccess instance => isDatabaseLocal: " + c.isDatabaseLocal()
 		+ " getDatabBaseOpenMode: " + c.getDataBaseOpenMode());
@@ -62,7 +62,7 @@ public class DataAccess {
 
 	}
 
-	public DataAccess() {
+	public DataAccessSaez2() {
 		this(false);
 	}
 
@@ -803,6 +803,7 @@ public class DataAccess {
 	 * Añade un evento
 	 * @param descripcion la descripcion del evento
 	 * @param fecha la fecha de dicho evento
+	 * @return 
 	 */
 	public Event addEvent(String descripcion, Date fecha, Equipo eq1, Equipo eq2) {
 		db.getTransaction().begin();
@@ -958,7 +959,7 @@ public class DataAccess {
 		}
 		return res;
 	}
-	
+
 	public boolean removeEvent(Event ev) {
 		System.out.println(">> DataAccessTest: removeEvent");
 		Event e = db.find(Event.class, ev.getEventNumber());
