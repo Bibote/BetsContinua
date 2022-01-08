@@ -112,12 +112,12 @@ public class DataAccessSaez2 {
 			Question q6;
 
 			if (Locale.getDefault().equals(new Locale("es"))) {
-				q1 = ev1.addQuestion("¿Quien ganara el partido?", 1, false);
-				q2 = ev1.addQuestion("¿Quien metera el primer gol?", 2, false);
-				q3 = ev1.addQuestion("¿Quien ganara el partido?", 1, false);
-				q4 = ev5.addQuestion("¿Cuantos goles se marcarï¿½n?", 2, false);
-				q5 = ev5.addQuestion("¿Quien ganara el partido?", 1, false);
-				q6 = ev5.addQuestion("¿Habra goles en la primera parte?", 2, false);
+				q1 = ev1.addQuestion("Quien ganara el partido?", 1, false);
+				q2 = ev1.addQuestion("Quien metera el primer gol?", 2, false);
+				q3 = ev1.addQuestion("Quien ganara el partido?", 1, false);
+				q4 = ev5.addQuestion("Cuantos goles se marcarï¿½n?", 2, false);
+				q5 = ev5.addQuestion("Quien ganara el partido?", 1, false);
+				q6 = ev5.addQuestion("Habra goles en la primera parte?", 2, false);
 			} else if (Locale.getDefault().equals(new Locale("en"))) {
 				q1 = ev1.addQuestion("Who will win the match?", 1, false);
 				q2 = ev1.addQuestion("Who will score first?", 2, false);
@@ -322,7 +322,7 @@ public class DataAccessSaez2 {
 	 * Funcion para introducir un pronostico con equipo a una pregunta
 	 * @param ev Evento al cual se le introduce el pronostico
 	 * @param q Pregunta a la cual se le introduce el pronostico
-	 * @param eq Equipo al que se le añade el pronostico
+	 * @param eq Equipo al que se le anade el pronostico
 	 * @param porcen Porcentaje del pronostico
 	 * @return devuelve el pronostico si se ha creado correctamente, o null si no.
 	 * @throws PrognosticAlreadyExist Error si ya existe ese pronostico
@@ -527,7 +527,7 @@ public class DataAccessSaez2 {
 	/**
 	 * Cambia los creditos positiva o negativamente
 	 * @param usr el usuario del cual se cambian
-	 * @param chuti el numero de creditos, positivo para añadir, negativo para sustraer
+	 * @param chuti el numero de creditos, positivo para anadir, negativo para sustraer
 	 * @throws NotEnoughChuti lanza esto si no hay suficientes creditos en la substraccion 
 	 */
 	public void setChutiGoles(User usr, Double chuti) throws NotEnoughChuti {
@@ -683,8 +683,8 @@ public class DataAccessSaez2 {
 	}
 
 	/**
-	 * Añade una apuesta 
-	 * @param apuesta la apuesta a añadir
+	 * Anade una apuesta 
+	 * @param apuesta la apuesta a anadir
 	 */
 	public void addApuesta(Apuesta apuesta) {
 
@@ -800,7 +800,7 @@ public class DataAccessSaez2 {
 	}
 
 	/**
-	 * Añade un evento
+	 * Anade un evento
 	 * @param descripcion la descripcion del evento
 	 * @param fecha la fecha de dicho evento
 	 * @return 
@@ -832,7 +832,7 @@ public class DataAccessSaez2 {
 		db.persist(u);
 		db.persist(c);
 		db.getTransaction().commit();
-		System.out.println("Tarjeta del usuario añadida correctamente"+u.getCards());
+		System.out.println("Tarjeta del usuario anadida correctamente"+u.getCards());
 	}
 
 	public Vector<Apuesta> getBetsFromUser(User us) {
