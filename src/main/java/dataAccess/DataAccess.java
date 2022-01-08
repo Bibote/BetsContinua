@@ -297,7 +297,7 @@ public class DataAccess {
 	 * @throws PrognosticAlreadyExist si ya existe ese mismo pronostico en la
 	 *                                pregunta
 	 */
-	public Pronosticos createPrognostic(int ev, Question q, String pronos, float porcen) throws PrognosticAlreadyExist {
+	public Pronosticos createPrognostic(Event ev, Question q, String pronos, float porcen) throws PrognosticAlreadyExist {
 		System.out.println(
 				">> DataAccess: createPronostic=> Question= " + q + " prognostic= " + pronos + " Porcentaje=" + porcen);
 		Event evento = db.find(Event.class, ev);
@@ -328,9 +328,14 @@ public class DataAccess {
 	 * @throws PrognosticAlreadyExist Error si ya existe ese pronostico
 	 * @throws WrongParameters Error si algunos de los parametros introducidos es incorrecto
 	 */
-	public Pronosticos createPrognosticTeam(int ev, Question q, Equipo eq, float porcen) throws PrognosticAlreadyExist, WrongParameters {
+	public Pronosticos createPrognosticTeam(Event ev, Question q, Equipo eq, float porcen) throws PrognosticAlreadyExist, WrongParameters {
 		Event evento = db.find(Event.class, ev);
-		if(evento==null || q==null || eq==null || porcen<0) throw new WrongParameters() ;
+		if(evento==null || q==null || eq==null || porcen<0) {
+			System.out.println(evento);
+			System.out.println(ev);
+			throw new WrongParameters() ;
+		}
+
 		Vector<Question> questions = evento.getQuestions();
 		for (Question question : questions) {
 			if (question.getQuestionNumber() == q.getQuestionNumber()) {

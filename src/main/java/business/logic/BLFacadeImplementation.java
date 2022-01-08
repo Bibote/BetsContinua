@@ -454,13 +454,13 @@ public class BLFacadeImplementation  implements BLFacade {
 	/*
 	 * 
 	 */
-	public Pronosticos createPrognostic(int e, Question q, String pronos, float porcen, Equipo eq) throws PrognosticAlreadyExist, WrongParameters {
+	public Pronosticos createPrognostic(Event ev, Question q, String pronos, float porcen, Equipo eq) throws PrognosticAlreadyExist, WrongParameters {
 		dbManager.open(false);
 		Pronosticos p;
 		if (eq == null) {
-		p=dbManager.createPrognostic(e, q, pronos, porcen);
+		p=dbManager.createPrognostic(ev, q, pronos, porcen);
 		}else {
-			p=dbManager.createPrognosticTeam(e, q, eq, porcen);
+			p=dbManager.createPrognosticTeam(ev, q, eq, porcen);
 		}
 		dbManager.close();
 		return p;

@@ -238,7 +238,7 @@ public interface BLFacade  {
 	 * @throws PrognosticAlreadyExist Error si el pronostico existe
 	 * @throws WrongParameters 
 	 */
-	@WebMethod public Pronosticos createPrognostic(int e,Question q, String pronos, float porcen, Equipo eq) throws PrognosticAlreadyExist, WrongParameters;
+	@WebMethod public Pronosticos createPrognostic(Event ev,Question q, String pronos, float porcen, Equipo eq) throws PrognosticAlreadyExist, WrongParameters;
 
 	/**
 	 * Metodo que devuelve una pregunta de la base de datos

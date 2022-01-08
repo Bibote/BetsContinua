@@ -28,6 +28,7 @@ class CreatePrognosticTeamBLMockTest {
 	Event mockedEvent = Mockito.mock(Event.class);
 
 	BLFacade sut = new BLFacadeImplementation(dataAccess);
+	Event ev=new Event();
 
 	@Test
 	@DisplayName("Test1: No existe ese evento en la bd")
@@ -36,14 +37,14 @@ class CreatePrognosticTeamBLMockTest {
 
 			try {
 				// configure Mock
-Mockito.when(dataAccess.createPrognosticTeam(Mockito.anyInt(), Mockito.any(Question.class), Mockito.any(Equipo.class), Mockito.anyFloat())).
+Mockito.when(dataAccess.createPrognosticTeam(Mockito.any(Event.class), Mockito.any(Question.class), Mockito.any(Equipo.class), Mockito.anyFloat())).
 thenThrow(new WrongParameters());
 
 				// invoke System Under Test (sut)
 				String queryText = "Query Text";
-
+				
 				Equipo e= new Equipo("real", 0);
-				assertThrows(WrongParameters.class, ()-> sut.createPrognostic(1, new Question(), queryText, 15, e));
+				assertThrows(WrongParameters.class, ()-> sut.createPrognostic(ev, new Question(), queryText, 15, e));
 
 
 			} catch (PrognosticAlreadyExist e) {
@@ -60,13 +61,13 @@ thenThrow(new WrongParameters());
 		
 			try {
 				// configure Mock
-Mockito.when(dataAccess.createPrognosticTeam(Mockito.anyInt(), Mockito.any(), Mockito.any(Equipo.class), Mockito.anyFloat())).
+Mockito.when(dataAccess.createPrognosticTeam(Mockito.any(Event.class), Mockito.any(), Mockito.any(Equipo.class), Mockito.anyFloat())).
 thenThrow(new WrongParameters());
 
 				// invoke System Under Test (sut)
 				String queryText = "Query Text";
 				Equipo e= new Equipo("real", 0);
-				assertThrows(WrongParameters.class, ()-> sut.createPrognostic(1, null, queryText, 15, e));
+				assertThrows(WrongParameters.class, ()-> sut.createPrognostic(ev, null, queryText, 15, e));
 
 
 			} catch (PrognosticAlreadyExist e) {
@@ -83,13 +84,13 @@ thenThrow(new WrongParameters());
 		
 			try {
 				// configure Mock
-Mockito.when(dataAccess.createPrognosticTeam(Mockito.anyInt(), Mockito.any(Question.class), Mockito.any(Equipo.class), Mockito.anyFloat())).
+Mockito.when(dataAccess.createPrognosticTeam(Mockito.any(Event.class), Mockito.any(Question.class), Mockito.any(Equipo.class), Mockito.anyFloat())).
 thenReturn(null);
 
 				// invoke System Under Test (sut)
 				String queryText = "Query Text";
 				Equipo e= new Equipo("real", 0);
-				assertNull(sut.createPrognostic(1, new Question(), queryText, 15, e));
+				assertNull(sut.createPrognostic(ev, new Question(), queryText, 15, e));
 
 
 			} catch (PrognosticAlreadyExist e) {
@@ -107,7 +108,7 @@ thenReturn(null);
 
 			try {
 				// configure Mock
-Mockito.when(dataAccess.createPrognosticTeam(Mockito.anyInt(), Mockito.any(Question.class), Mockito.any(), Mockito.anyFloat())).
+Mockito.when(dataAccess.createPrognosticTeam(Mockito.any(Event.class), Mockito.any(Question.class), Mockito.any(), Mockito.anyFloat())).
 thenThrow(new WrongParameters());
 
 				// invoke System Under Test (sut)
@@ -115,7 +116,7 @@ thenThrow(new WrongParameters());
 
 			
 				Equipo e= new Equipo("real", 0);
-				assertThrows(WrongParameters.class, ()-> sut.createPrognostic(1, new Question(), queryText, -15, e));
+				assertThrows(WrongParameters.class, ()-> sut.createPrognostic(ev, new Question(), queryText, -15, e));
 
 
 			} catch (PrognosticAlreadyExist e) {
@@ -134,7 +135,7 @@ thenThrow(new WrongParameters());
 
 			try {
 				// configure Mock
-Mockito.when(dataAccess.createPrognosticTeam(Mockito.anyInt(), Mockito.any(Question.class), Mockito.any(), Mockito.anyFloat())).
+Mockito.when(dataAccess.createPrognosticTeam(Mockito.any(Event.class), Mockito.any(Question.class), Mockito.any(), Mockito.anyFloat())).
 thenThrow(new PrognosticAlreadyExist());
 
 				// invoke System Under Test (sut)
@@ -142,7 +143,7 @@ thenThrow(new PrognosticAlreadyExist());
 
 			
 				Equipo e= new Equipo("real", 0);
-				assertThrows(PrognosticAlreadyExist.class, ()-> sut.createPrognostic(1, new Question(), queryText, 16, e));
+				assertThrows(PrognosticAlreadyExist.class, ()-> sut.createPrognostic(ev, new Question(), queryText, 16, e));
 
 
 			} catch (PrognosticAlreadyExist e) {
@@ -168,12 +169,12 @@ thenThrow(new PrognosticAlreadyExist());
 			try {
 				// configure Mock
 				
-				Mockito.when(dataAccess.createPrognosticTeam(Mockito.anyInt(), Mockito.any(), Mockito.any(Equipo.class), Mockito.anyFloat())).
+				Mockito.when(dataAccess.createPrognosticTeam(Mockito.any(Event.class), Mockito.any(), Mockito.any(Equipo.class), Mockito.anyFloat())).
 				thenReturn(new Pronosticos(eq,15,q));
 		
 				// invoke System Under Test (sut)
 				
-				Pronosticos p=sut.createPrognostic(1, q, queryText, 15, eq);
+				Pronosticos p=sut.createPrognostic(ev, q, queryText, 15, eq);
 				assertEquals(eq, p.getEq());
 				assertEquals(15, p.getPorcentaje());
 				assertEquals(q, p.getQuestion());
@@ -201,12 +202,12 @@ thenThrow(new PrognosticAlreadyExist());
 			try {
 				// configure Mock
 				
-				Mockito.when(dataAccess.createPrognostic(Mockito.anyInt(), Mockito.any(), Mockito.anyString(), Mockito.anyFloat())).
+				Mockito.when(dataAccess.createPrognostic(Mockito.any(Event.class), Mockito.any(), Mockito.anyString(), Mockito.anyFloat())).
 				thenReturn(new Pronosticos(queryText, 15, q));
 		
 				// invoke System Under Test (sut)
 				
-				Pronosticos p=sut.createPrognostic(1, q, queryText, 15, null);
+				Pronosticos p=sut.createPrognostic(ev, q, queryText, 15, null);
 				assertEquals(queryText, p.getPronostico());
 				assertEquals(15, p.getPorcentaje());
 				assertEquals(q, p.getQuestion());
