@@ -1,8 +1,6 @@
+
 package business.logic;
 
-import java.util.Vector;
-import java.util.Date;
-import java.util.List;
 import domain.Question;
 import domain.User;
 import domain.Apuesta;
