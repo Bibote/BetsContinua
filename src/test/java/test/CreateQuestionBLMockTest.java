@@ -46,7 +46,7 @@ class CreateQuestionBLMockTest {
 			try {
 				// configure Mock
 				Mockito.doReturn(oneDate).when(mockedEvent).getEventDate();
-				Mockito.when(dataAccess.createQuestion(Mockito.any(Event.class), Mockito.any(String.class),	Mockito.any(Integer.class), Mockito.anyBoolean())).thenThrow(new QuestionAlreadyExist());
+				Mockito.when(dataAccess.createQuestion(Mockito.any(Event.class), Mockito.any(String.class),	Mockito.any(Float.class), Mockito.anyBoolean())).thenThrow(new QuestionAlreadyExist());
 
 				// invoke System Under Test (sut)
 				String queryText = "Query Text";
@@ -75,9 +75,10 @@ class CreateQuestionBLMockTest {
 			Mockito.doReturn(oneDate).when(mockedEvent).getEventDate();
 			String queryText = "Query Text";
 			Float betMinimum = 2f;
+			Boolean bol=false;
 			try {
-				Mockito.doReturn(new Question(queryText, betMinimum, mockedEvent, false)).when(dataAccess).createQuestion(Mockito.any(Event.class),
-						Mockito.any(String.class), Mockito.any(Integer.class), false);
+				Mockito.doReturn(new Question(queryText, betMinimum, mockedEvent, bol)).when(dataAccess).createQuestion(Mockito.any(Event.class),
+						Mockito.any(String.class), Mockito.any(Float.class), Mockito.any(Boolean.class));
 
 				// invoke System Under Test (sut)
 				sut.createQuestion(mockedEvent, queryText, betMinimum, false);
@@ -86,9 +87,11 @@ class CreateQuestionBLMockTest {
 				ArgumentCaptor<Event> eventCaptor = ArgumentCaptor.forClass(Event.class);
 				ArgumentCaptor<String> questionStringCaptor = ArgumentCaptor.forClass(String.class);
 				ArgumentCaptor<Float> betMinimunCaptor = ArgumentCaptor.forClass(Float.class);
+				ArgumentCaptor<Boolean> booleanCaptor = ArgumentCaptor.forClass(Boolean.class);
+
 
 				Mockito.verify(dataAccess, Mockito.times(1)).createQuestion(eventCaptor.capture(),
-						questionStringCaptor.capture(), betMinimunCaptor.capture(), false);
+						questionStringCaptor.capture(), betMinimunCaptor.capture(), booleanCaptor.capture());
 
 				assertEquals(mockedEvent, eventCaptor.getValue());
 				assertEquals(queryText, questionStringCaptor.getValue());
@@ -122,7 +125,7 @@ class CreateQuestionBLMockTest {
 				String queryText = "Query Text";
 				Float betMinimum = 2f;
 				Mockito.doReturn(null).when(dataAccess).createQuestion(
-						Mockito.any(Event.class), Mockito.any(String.class), Mockito.any(Integer.class), false);
+						Mockito.any(Event.class), Mockito.any(String.class), Mockito.any(Float.class), Mockito.any(Boolean.class));
 
 				// invoke System Under Test (sut)
 				Question q = sut.createQuestion(mockedEvent, queryText, betMinimum, false);
