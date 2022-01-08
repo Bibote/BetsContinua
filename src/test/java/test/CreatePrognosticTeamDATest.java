@@ -22,7 +22,7 @@ import test.utility.TestUtilityDataAccess;
 
 class CreatePrognosticTeamDATest {
 	static DataAccess sut = new DataAccess(ConfigXML.getInstance().getDataBaseOpenMode().equals("initialize"));;
-	static TestUtilityDataAccess testDA = new TestUtilityDataAccess();
+	static DataAccess testDA = new DataAccess();
 	
 	
 

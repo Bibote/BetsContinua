@@ -971,5 +971,13 @@ public class DataAccess {
 		return false;
     }
 
+	public Event addEvent(Event ev) {
+			db.getTransaction().begin();
+			db.persist(ev);
+			db.getTransaction().commit();
+			db.find(Event.class, ev);
+			return db.find(Event.class, ev);
+		}
+
 
 }
