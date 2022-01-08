@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import business.logic.BLFacade;
+import domain.Event;
 import domain.Pronosticos;
 import domain.Question;
 import javax.swing.JLabel;
@@ -117,13 +118,10 @@ public class PronosticosGUI extends JFrame {
 		btnCrearPronostico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Question q1;
-				if((q1 = facade.obtainQuestion(ev, q)).isEquipo()) {
-					CreatePronosticosConEquipoGUI crearPronos = new CreatePronosticosConEquipoGUI(padreFrame, ev, q);
+				
+					CreatePronosticosConEquipoGUI crearPronos = new CreatePronosticosConEquipoGUI(padreFrame, new Event(), q);
 					crearPronos.setVisible(true);
-				}else {
-					CreatePronosticosGUI crearPronos = new CreatePronosticosGUI(padreFrame, ev, q);
-					crearPronos.setVisible(true);
-				}
+				
 				
 				setVisible(false);
 				dispose();

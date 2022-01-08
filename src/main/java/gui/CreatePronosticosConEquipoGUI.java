@@ -14,6 +14,7 @@ import javax.swing.border.EmptyBorder;
 
 import business.logic.BLFacade;
 import domain.Equipo;
+import domain.Event;
 import domain.Question;
 import exceptions.PreferencesNotChecked;
 import exceptions.PrognosticAlreadyExist;
@@ -32,7 +33,7 @@ public class CreatePronosticosConEquipoGUI extends JFrame {
 	private JFrame padreFrame;
 
 	private int q;
-	private int ev;
+	private Event ev;
 	private JTextField textFieldPorcentaje;
 	private JLabel jFrameLabelErrorNums;
 
@@ -41,7 +42,7 @@ public class CreatePronosticosConEquipoGUI extends JFrame {
 
 	private BLFacade facade = PublicMainGUI.getBusinessLogic();
 
-	public CreatePronosticosConEquipoGUI(JFrame padre, int ev, int q) {
+	public CreatePronosticosConEquipoGUI(JFrame padre, Event ev, int q) {
 		try {
 			padreFrame = padre;
 			this.q =q;
@@ -134,12 +135,12 @@ public class CreatePronosticosConEquipoGUI extends JFrame {
 					lblNoseleccionesDos.setVisible(false);
 					if(porcentaje.length()<0)throw new StringIsEmpty();
 					float porcen = Float.parseFloat(porcentaje);
-					Question question = facade.obtainQuestion(ev, q);
+					Question question = facade.obtainQuestion(5, q);
 					if(chckbxEq1.isSelected() && chckbxEq2.isSelected() ) {
 						throw  new PreferencesNotChecked();
 
 					}else if(chckbxEmpate.isSelected() && !chckbxEq1.isSelected() && !chckbxEq2.isSelected()) {
-						Question question1 = facade.obtainQuestion(ev, q);
+						Question question1 = facade.obtainQuestion(5, q);
 						facade.createPrognostic(ev, question1, "Empate", porcen, null);
 					}
 					else if (chckbxEq1.isSelected() && !chckbxEmpate.isSelected()) {
