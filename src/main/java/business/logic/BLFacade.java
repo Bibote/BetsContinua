@@ -1,6 +1,12 @@
 
 package business.logic;
 
+import java.util.Date;
+import java.util.List;
+import java.util.ResourceBundle;
+import java.util.Vector;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import domain.Question;
 import domain.User;
 import domain.Apuesta;
