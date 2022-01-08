@@ -44,7 +44,7 @@ class CreatePrognosticTeamDATest {
 		evbd=null;
 		try {
 			oneDate = sdf.parse("05/10/2022");
-			Event ev= new Event("eventoPrueba",oneDate,eq1,eq2);
+			Event ev= new Event("eventoPruebaa",oneDate,eq1,eq2);
 			
 			evbd = testDA.addEvent(ev);
 			Question q= new Question("query", 15, ev, true);
